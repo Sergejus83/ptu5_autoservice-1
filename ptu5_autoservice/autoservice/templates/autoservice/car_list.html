@@ -1,16 +1,27 @@
 {% extends 'autoservice/base.html' %}
+{% load static %}
 {% block title %}Cars in {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Cars Serviced</h1>
-{% with car_list as page_obj %}
-    {% include 'autoservice/includes/paginator_search.html' %}
-{% endwith %}
-<ul>
-{% for car_object in car_list %}
-    <li><a href="{% url 'car' car_object.pk %}">{{ car_object }}</a></li>
-{% endfor %}
-</ul>
-{% with car_list as page_obj %}
-    {% include 'autoservice/includes/paginator.html' %}
-{% endwith %}
+    <h1>Cars list</h1>
+        {% with car_list as page_obj %}
+            {% include 'autoservice/includes/paginator_search.html' %}
+        {% endwith %}
+        <ul class="car_list">
+           {% for car_object in car_list %}
+                <li class="car">
+                    <a href="{% url 'car' car_object.pk %}">{{ car_object }}
+                    {% if car.cover %}
+                        <img src="{{ car.cover.url }}">
+                    {% else %}
+                        <img src="{% static 'autoservice/img/car_demo.jpeg' %}">
+                    {% endif %}
+                    <h3>{{ car.title }}</h3>
+                </a>
+                <p>by {{ car_object.link }}</p>
+            </li> 
+            {% endfor %}   
+        </ul>
+            {% with car_list as page_obj %}
+            {% include 'autoservice/includes/paginator.html' %}
+    {% endwith %}
 {% endblock content %}

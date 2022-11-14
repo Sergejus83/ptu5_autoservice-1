@@ -25,6 +25,7 @@ class Car(models.Model):
     plate = models.CharField(_("license plate"), max_length=10)
     vin = models.CharField(_("VIN number"), max_length=30)
     client = models.CharField(_("client name"), max_length=100)
+    cover = models.ImageField(_("cover"), upload_to="covers", blank=True, null=True)
 
     def __str__(self) -> str:
         return f"{self.car_model.make} {self.car_model.model}, {self.plate}, {self.client}"
