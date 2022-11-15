@@ -9,15 +9,14 @@
         <ul class="car_list">
            {% for car_object in car_list %}
                 <li class="car">
-                    <a href="{% url 'car' car_object.pk %}">{{ car_object }}
-                    {% if car.cover %}
-                        <img src="{{ car.cover.url }}">
+                    <a href="{% url 'car' car_object.pk %}">
+                    {% if car_object.cover %}
+                        <img src="{{ car_object.cover.url }}">
                     {% else %}
                         <img src="{% static 'autoservice/img/car_demo.jpeg' %}">
                     {% endif %}
-                    <h3>{{ car.title }}</h3>
-                </a>
-                <p>by {{ car_object.link }}</p>
+                    <h3>{{ car_object }}</h3>
+                    </a>
             </li> 
             {% endfor %}   
         </ul>
