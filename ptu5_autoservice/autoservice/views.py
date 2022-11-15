@@ -6,10 +6,13 @@ from . import models
 
 
 def index(request):
+    visits_count = request.session.get('visits_count', 1)
+    request.session['visits_count'] = visits_count + 1  
     return render(request, 'autoservice/index.html', {
         'cars_count': models.Car.objects.count(),
         'services_count': models.Service.objects.count(),
         'orders_count': models.Order.objects.count(),
+        'visits_count': visits_count,
     })
 
 def car_list_view(request):
