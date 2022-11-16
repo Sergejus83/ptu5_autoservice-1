@@ -103,6 +103,17 @@ ul li:hover {
     border-radius: 1rem;
 }
 
+ul.car_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+ul.car_list li.car img {
+    max-width: 100%;
+}
+
 .paginator span {
     background-color: #645;
     color: #fec;
