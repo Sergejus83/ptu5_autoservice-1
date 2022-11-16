@@ -3,6 +3,8 @@ from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from . import models
+from django.contrib.auth.mixins import LoginRequiredMixin
+# from models import Order
 
 
 def index(request):
@@ -60,3 +62,14 @@ class OrderListView(generic.ListView):
 class OrderDetailView(generic.DetailView):
     model = models.Order
     template_name = 'autoservice/order_detail.html'
+
+
+class UserOrderListView(LoginRequiredMixin, generic.ListView):
+    model = models.Order
+    template_name = 'autoservice/user_order_list.html'
+    paginate_by = 3
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(user=self.request.user).order_by('estimate_date')
+        return queryset

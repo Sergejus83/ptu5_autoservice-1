@@ -1,6 +1,8 @@
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from datetime import date
+from django.contrib.auth import get_user_model
+from django.utils.timezone import datetime
 
 
 class CarModel(models.Model):
@@ -60,6 +62,19 @@ class Order(models.Model):
     date = models.DateField(_("date"), auto_now_add=True)
     status = models.CharField(_("status"), max_length=1, choices=STATUS_CHOICES, default='n')
     estimate_date = models.DateField(_("estimate date"), null=True, blank=True)
+    user = models.ForeignKey(
+        get_user_model(),
+        verbose_name="User",
+        on_delete=models.SET_NULL,
+        null=True, blank=True,
+        related_name='user_order', # ????
+    )
+
+    @property
+    def is_expired_date(self):
+        if self.estimate_date and self.estimate_date < datetime.date(datetime.now()):
+            return True
+        return False
 
     def get_total(self):
         total = 0
