@@ -15,7 +15,7 @@ class OrderLineInline(admin.TabularInline):
 
 class OrderAdmin(admin.ModelAdmin):
     inlines = (OrderLineInline,)
-    list_display = ('id', 'date', 'estimate_date', 'is_expired_date', 'total', 'car')
+    list_display = ('id', 'user', 'date', 'estimate_date', 'is_expired_date', 'total', 'car')
     list_filter = ('estimate_date', 'status')
     readonly_fields = ('id', 'is_expired_date')
     search_fields = ('id', 'plate', 'car', 'client')

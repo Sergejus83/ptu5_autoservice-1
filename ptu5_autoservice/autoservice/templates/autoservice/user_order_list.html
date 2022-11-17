@@ -3,14 +3,14 @@
 {% block content %}
 <h1>My orders</h1>
 <div class="table-grid my-order-table">
-    <div class="table-grid-cell center dark">Car owner</div>
-    <div class="table-grid-cell center dark">Licence plate</div>
+    <div class="table-grid-cell center dark">Order date</div>
+    <div class="table-grid-cell center dark">Car</div>
     <div class="table-grid-cell center dark">Due date</div>
     <div class="table-grid-cell center dark">Status</div>
-    {% for order in orders_list %}
-        <div class="table-grid-cell">{{ order.car.client }}</div>
-        <div class="table-grid-cell">{{ order.plate }}</div>
-        <div class="table-grid-cell center{% if order.is_expired_date %} overdue{% endif %}">{{ order.etimate_date }}</div>
+    {% for order in order_list %}
+        <div class="table-grid-cell">{{ order.date }}</div>
+        <div class="table-grid-cell">{{ order.car }}</div>
+        <div class="table-grid-cell center{% if order.is_expired_date %} overdue{% endif %}">{{ order.estimate_date }}</div>
         <div class="table-grid-cell center{% if order.is_expired_date %} overdue{% endif %}">{{ order.get_status_display }}</div>
     {% endfor %}
 </div>
