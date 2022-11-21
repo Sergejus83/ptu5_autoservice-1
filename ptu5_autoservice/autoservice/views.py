@@ -71,5 +71,5 @@ class UserOrderListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        queryset = queryset.filter(user=self.request.user).order_by('estimate_date')
+        queryset = queryset.filter(user=self.request.user).order_by('-estimate_date')
         return queryset

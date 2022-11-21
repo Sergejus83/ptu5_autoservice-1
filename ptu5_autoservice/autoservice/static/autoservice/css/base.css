@@ -143,6 +143,10 @@ table {
     padding: 0.5rem;
 }
 
+.form-grid {
+    background-color: rgba(174, 169, 166, 0.3);
+    border-bottom: 3px solid rgb(0, 0, 0);}
+
 .my-order-table {
     grid-template-columns: 1fr 3fr 1fr 1fr;
 }
@@ -159,6 +163,20 @@ table {
     text-align: center;
 }
 
+.float-right {
+    float: right;
+}
+
+.book-review h4 {
+    display: block;
+    padding: 0.5rem 1rem;
+    margin: 0;
+}
+
+.review-form label {
+    display: none;
+}
+
 .dark {
     background-color: #333;
     color: #fff;
@@ -168,4 +186,21 @@ table {
     background-color: #f99;
     color: red;
     font-weight: bold;
+}
+
+.alert {
+    padding: 0.5rem 1rem;
+    border:  3px solid #999;
+}
+
+.alert-error {
+    background-color: rgb(225, 230, 76);
+    color: red;
+    border-color: red;
+}
+
+.alert-success {
+    background-color: rgb(173, 241, 166);
+    color: rgb(18, 73, 9);
+    border-color: rgb(3, 66, 3);
 }

@@ -1,7 +1,7 @@
 {% extends 'autoservice/base.html' %}
 {% block title %}Order {{ object }} in {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Order #{{ object.id }}</h1>
+<h1>Order id: {{ object.id }}, date: {{ object.date }}</h1>
 <p>Date: {{ object.date }}</p>
 <p>Status: {{ object.get_status_display }}, estimated: {{ object.estimate_date }}</p>
 <p>Car: {{ object.car }}</p>

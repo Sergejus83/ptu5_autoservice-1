@@ -1,8 +1,9 @@
 {% extends 'autoservice/base.html' %}
-{% block title %}My order in {{block.super}}{% endblock title %}
+{% block title %}My order in {{block.super}}service{% endblock title %}
 {% block content %}
 <h1>My orders</h1>
 <div class="table-grid my-order-table">
+    {% comment %} <p><a href="{% url 'order' order.pk %}"></p> {% endcomment %}
     <div class="table-grid-cell center dark">Order date</div>
     <div class="table-grid-cell center dark">Car</div>
     <div class="table-grid-cell center dark">Due date</div>

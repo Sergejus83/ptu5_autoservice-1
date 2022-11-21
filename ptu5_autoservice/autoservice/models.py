@@ -3,6 +3,7 @@ from django.utils.translation import gettext_lazy as _
 from datetime import date
 from django.contrib.auth import get_user_model
 from django.utils.timezone import datetime
+from tinymce.models import HTMLField
 
 
 class CarModel(models.Model):
@@ -28,6 +29,7 @@ class Car(models.Model):
     vin = models.CharField(_("VIN number"), max_length=30)
     client = models.CharField(_("client name"), max_length=100)
     cover = models.ImageField(_("cover"), upload_to="covers", blank=True, null=True)
+    
 
     def __str__(self) -> str:
         return f"{self.car_model.make} {self.car_model.model}, {self.plate}, {self.client}"
@@ -62,6 +64,7 @@ class Order(models.Model):
     date = models.DateField(_("date"), auto_now_add=True)
     status = models.CharField(_("status"), max_length=1, choices=STATUS_CHOICES, default='n')
     estimate_date = models.DateField(_("estimate date"), null=True, blank=True)
+    
     user = models.ForeignKey(
         get_user_model(),
         verbose_name="User",
@@ -69,6 +72,8 @@ class Order(models.Model):
         null=True, blank=True,
         related_name='user_order', # ????
     )
+
+    # return_date = models.DateField('return data', null=True, blank=True) # migrations
 
     @property
     def is_expired_date(self):
