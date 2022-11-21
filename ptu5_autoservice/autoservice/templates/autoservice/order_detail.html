@@ -7,8 +7,31 @@
 <p>Car: {{ object.car }}</p>
 <p>Total price: {{ object.total }} €</p>
 <ul>
-    {% for line in object.order_lines.all %}
-        <li>{{ line }}</li>
+    {% for order_line in object.order_lines.all %}
+        <li>{{ order_line }}</li>
     {% endfor %}
 </ul>
+<h3>Reviews</h3>
+{% if user.is_authenticated %}
+    <div class="review-form">
+        <p>please leave comments here:</p>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p><button type="submit">Post review</button></p>
+        </form>
+    </div>
+{% endif %}
+{% if order.reviews %}
+    {% for review in order.review.all %}
+    <div class="review-form">
+        {% if review.user.profile.photo %}
+            <img src="{{ review.user.profile.photo.url }}">
+        {% endif %}
+            {{ review.user }}
+        <spam class="float-right">{{ review.create_at }}</spam>
+        <p>{{ review.comments }}</p>
+    </div>
+    {% endfor %}
+{% endif %}
 {% endblock content %}

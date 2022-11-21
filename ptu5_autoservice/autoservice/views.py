@@ -4,7 +4,11 @@ from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from . import models
 from django.contrib.auth.mixins import LoginRequiredMixin
-# from models import Order
+from . forms import OrderReviewForm
+from django.views.generic.edit import FormMixin
+from django.contrib import messages
+from django.urls import reverse
+
 
 
 def index(request):
@@ -61,7 +65,34 @@ class OrderListView(generic.ListView):
 
 class OrderDetailView(generic.DetailView):
     model = models.Order
+    from_class = models.OrderRevew
     template_name = 'autoservice/order_detail.html'
+
+    def get_success_url(self): # kur nukeliaus komentaras
+        return reverse('order', kwargs={'pk': self.get_object().id})
+
+    def post(self, *args, **kwargs):
+        self.objects = self.get_object()
+        form = self.get_form(form)
+        if form.is_valid(form):
+            return self.form.valid(form)
+        else:
+            messages.error(self.request, "you posted too much")
+            return self.form_invalid(form)
+
+    def form_valid(self, form):
+            form.instance.order = self.get_object()
+            form.instance.ruser = self.request.user
+            form.save()
+            messages.success(self.request, 'Your review has been posted')
+            return super().form_valid(form)
+
+    def get_initial(self):
+        return {
+            'order': self.get_object(),
+            'user': self.request.user
+        }
+
 
 
 class UserOrderListView(LoginRequiredMixin, generic.ListView):

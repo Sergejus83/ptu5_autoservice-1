@@ -29,7 +29,7 @@ class Car(models.Model):
     plate = models.CharField(_("license plate"), max_length=10)
     vin = models.CharField(_("VIN number"), max_length=30)
     client = models.CharField(_("client name"), max_length=100)
-    photo = models.ImageField(_("photo"), upload_to="photo", blank=True, null=True)
+    cover = models.ImageField(_("cover"), upload_to="cover", blank=True, null=True)
     info = HTMLField('info')
 
     def __str__(self) -> str:
@@ -123,3 +123,13 @@ class OrderLine(models.Model):
 
     def __str__(self) -> str:
         return f"{self.service.name}: {self.quantity} x {self.price}"
+
+
+class OrderRevew(models.Model):
+    order = models.ForeignKey(Order, verbose_name="order", on_delete=models.CASCADE, related_name="reviews")
+    user = models.ForeignKey(get_user_model(), verbose_name="user", on_delete=models.CASCADE, related_name="order_reviews")
+    comments = models.TextField('comments', max_length=10000)
+    create_at = models.DateTimeField("created at", auto_now_add=True)
+
+    def __init__(self):
+        return f'{self.order} {self.user} at {self.create_at}'
