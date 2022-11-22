@@ -1,20 +1,18 @@
 {% extends 'autoservice/base.html' %}
-{% block title %}Order {{ object }} in {{ block.super }}{% endblock title %}
+{% block title %}Order {{ object.id }} in {{ block.super }}{% endblock title %}
 {% block content %}
 <h1>Order id: {{ object.id }}, date: {{ object.date }}</h1>
 <p>Date: {{ object.date }}</p>
 <p>Status: {{ object.get_status_display }}, estimated: {{ object.estimate_date }}</p>
 <p>Car: {{ object.car }}</p>
+{% for order_line in object.order_lines.all %}
+    <p>Service: {{ order_line }}</p>
+{% endfor %}
 <p>Total price: {{ object.total }} €</p>
-<ul>
-    {% for order_line in object.order_lines.all %}
-        <li>{{ order_line }}</li>
-    {% endfor %}
-</ul>
 <h3>Reviews</h3>
 {% if user.is_authenticated %}
     <div class="review-form">
-        <p>please leave comments here:</p>
+        <p>Please leave comments here:</p>
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
@@ -23,15 +21,15 @@
     </div>
 {% endif %}
 {% if order.reviews %}
-    {% for review in order.review.all %}
-    <div class="review-form">
+    {% for review in order.reviews.all %}
+        <div class="review-form">
         {% if review.user.profile.photo %}
-            <img src="{{ review.user.profile.photo.url }}">
+                <img src="{{ review.user.profile.photo.url }}">
         {% endif %}
-            {{ review.user }}
+        {{ review.user }}
         <spam class="float-right">{{ review.create_at }}</spam>
         <p>{{ review.comments }}</p>
-    </div>
+        </div>
     {% endfor %}
 {% endif %}
 {% endblock content %}

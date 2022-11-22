@@ -63,9 +63,9 @@ class OrderListView(generic.ListView):
         return queryset
 
 
-class OrderDetailView(generic.DetailView):
+class OrderDetailView(FormMixin, generic.DetailView):
     model = models.Order
-    from_class = models.OrderRevew
+    form_class = OrderReviewForm
     template_name = 'autoservice/order_detail.html'
 
     def get_success_url(self): # kur nukeliaus komentaras
@@ -73,16 +73,16 @@ class OrderDetailView(generic.DetailView):
 
     def post(self, *args, **kwargs):
         self.objects = self.get_object()
-        form = self.get_form(form)
-        if form.is_valid(form):
-            return self.form.valid(form)
+        form = self.get_form()
+        if form.is_valid():
+            return self.form_valid(form)
         else:
             messages.error(self.request, "you posted too much")
             return self.form_invalid(form)
 
     def form_valid(self, form):
             form.instance.order = self.get_object()
-            form.instance.ruser = self.request.user
+            form.instance.user = self.request.user
             form.save()
             messages.success(self.request, 'Your review has been posted')
             return super().form_valid(form)

@@ -125,11 +125,11 @@ class OrderLine(models.Model):
         return f"{self.service.name}: {self.quantity} x {self.price}"
 
 
-class OrderRevew(models.Model):
+class OrderReview(models.Model):
     order = models.ForeignKey(Order, verbose_name="order", on_delete=models.CASCADE, related_name="reviews")
     user = models.ForeignKey(get_user_model(), verbose_name="user", on_delete=models.CASCADE, related_name="order_reviews")
     comments = models.TextField('comments', max_length=10000)
     create_at = models.DateTimeField("created at", auto_now_add=True)
 
-    def __init__(self):
+    def __str__(self):
         return f'{self.order} {self.user} at {self.create_at}'

@@ -249,3 +249,10 @@ table {
 .button:hover {
     background-color: #ddd;
 }
+
+.order-review h4 img {
+    max-height: 1.5rem;
+    float: left;
+    margin-right: 0.5rem;
+    border-radius: 0.5rem;
+}

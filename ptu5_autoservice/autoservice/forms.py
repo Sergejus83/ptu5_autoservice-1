@@ -1,9 +1,9 @@
 from django import forms
-from . models import OrderRevew
+from . models import OrderReview
 
 class OrderReviewForm(forms.ModelForm):
-      class Meta:
-        model = OrderRevew
+    class Meta:
+        model = OrderReview
         fields = ('comments', 'user', 'order')
         widgets = {
             'user': forms.HiddenInput(),
