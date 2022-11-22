@@ -1,18 +1,21 @@
 {% extends 'autoservice/base.html' %}
-{% block title %}My order in {{block.super}}service{% endblock title %}
+{% block title %}My order in {{block.super}}{% endblock title %}
 {% block content %}
 <h1>My orders</h1>
+<p><a class="button" href="{% url 'user_order_create' %}">Make new order</a></p>
 <div class="table-grid my-order-table">
     {% comment %} <p><a href="{% url 'order' order.pk %}"></p> {% endcomment %}
     <div class="table-grid-cell center dark">Order date</div>
     <div class="table-grid-cell center dark">Car</div>
     <div class="table-grid-cell center dark">Due date</div>
     <div class="table-grid-cell center dark">Status</div>
+    <div class="table-grid-cell center dark">Action</div>
     {% for order in order_list %}
         <div class="table-grid-cell">{{ order.date }}</div>
         <div class="table-grid-cell">{{ order.car }}</div>
         <div class="table-grid-cell center{% if order.is_expired_date %} overdue{% endif %}">{{ order.estimate_date }}</div>
         <div class="table-grid-cell center{% if order.is_expired_date %} overdue{% endif %}">{{ order.get_status_display }}</div>
+        <div class="table-grid-cell center">No info</div>
     {% endfor %}
 </div>
 {% endblock content %}

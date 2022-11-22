@@ -1,5 +1,5 @@
 from django import forms
-from . models import OrderReview
+from . models import OrderReview, Order
 
 class OrderReviewForm(forms.ModelForm):
     class Meta:
@@ -11,3 +11,8 @@ class OrderReviewForm(forms.ModelForm):
         }
 
 
+# class OrderForm(forms.ModelForm):
+#     class Meta:
+#         model = Order
+#         fields = ('order', 'due_back', )
+#         # widgets = {'due_back': DateInput()}

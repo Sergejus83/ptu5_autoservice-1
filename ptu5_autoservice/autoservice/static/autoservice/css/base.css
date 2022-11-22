@@ -148,7 +148,7 @@ table {
     border-bottom: 3px solid rgb(0, 0, 0);}
 
 .my-order-table {
-    grid-template-columns: 1fr 3fr 1fr 1fr;
+    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
 }
 
 .table-grid-cell {

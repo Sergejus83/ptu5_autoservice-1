@@ -7,8 +7,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from . forms import OrderReviewForm
 from django.views.generic.edit import FormMixin
 from django.contrib import messages
-from django.urls import reverse
-
+from django.urls import reverse, reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 
 def index(request):
@@ -44,7 +44,7 @@ def car_detail_view(request, pk):
     })
 
 
-class OrderListView(generic.ListView):
+class OrderListView(ListView):
     model = models.Order
     paginate_by = 2
     template_name = 'autoservice/order_list.html'
@@ -95,12 +95,24 @@ class OrderDetailView(FormMixin, generic.DetailView):
 
 
 
-class UserOrderListView(LoginRequiredMixin, generic.ListView):
+class UserOrderListView(LoginRequiredMixin, ListView):
     model = models.Order
     template_name = 'autoservice/user_order_list.html'
-    paginate_by = 3
 
     def get_queryset(self):
         queryset = super().get_queryset()
         queryset = queryset.filter(user=self.request.user).order_by('-estimate_date')
         return queryset
+
+
+class UserOrderCreateView(LoginRequiredMixin, CreateView):
+    model = models.Order
+    fields = ('car', 'estimate_date',)
+    # form_class = OrderForm
+    template_name = 'autoservice/user_order_create.html'
+    success_url = reverse_lazy('user_orders')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.status = 'n'
+        return super().form_valid(form)
