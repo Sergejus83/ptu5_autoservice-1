@@ -2,9 +2,12 @@
 {% block title %}Updating in {{ block.super }}{% endblock title %}
 {% block content %}
 <h1>Updating order info</h1>
+{% if action %}{{ action }}{% endif %}
 <form action="" method="post">
+    {% if order %}<p>{{ order.car }}</p>{% endif %}
+    {% csrf_token %}
+    {{ form.as_p }}
+    <h4>Click the button to pay for your order</h4>
+    <p><button type="submit">{% if action %}{{ action }}{% endif %}Pay</button></p>
 </form>
-    
-
-
 {% endblock content %}

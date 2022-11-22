@@ -127,9 +127,13 @@ class UserOrderUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
-        form.instance.status = 'w'
-        messages.success(self.request, 'order in process')
+        form.instance.status = 'p'
+        messages.success(self.request, 'Order was paid')
         return super().form_valid(form)
+
+    def test_func(self):
+        order = self.get_object()
+        return self.request.user == order.user
 
     
 class UserOrderDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
@@ -138,5 +142,14 @@ class UserOrderDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     success_url = reverse_lazy('user_orders')
 
     def test_func(self):
-        book_instance = self.get_object()
-        return self.request.user == book_instance.user
+        order = self.get_object()
+        # messages.success(self.request, 'order canselled')
+        return self.request.user == order.user
+
+    def form_valid(self, form):
+        order = self.get_object()
+        if order.status == 'n':
+            messages.success(self.request, 'order cancelled')
+        # else:
+        #     messages.success(self.request, 'please pay')
+        return super().form_valid(form)

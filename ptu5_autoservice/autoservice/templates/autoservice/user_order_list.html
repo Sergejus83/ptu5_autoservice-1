@@ -18,8 +18,10 @@
         <div class="table-grid-cell center">
             {% if order.status == 'n' %}
                 <a class="button" href="{% url 'user_order_delete' order.pk %}">Cancel</a>
-            {% elif order.status == 'w' %}
                 <a class="button" href="{% url 'user_order_update' order.pk  %}">Update</a>
+            {% elif order.status == 'p' %} 
+            <a>no action</a>
+
             {% endif %}
         </div>
     {% endfor %}
