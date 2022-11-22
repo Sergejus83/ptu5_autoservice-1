@@ -15,7 +15,13 @@
         <div class="table-grid-cell">{{ order.car }}</div>
         <div class="table-grid-cell center{% if order.is_expired_date %} overdue{% endif %}">{{ order.estimate_date }}</div>
         <div class="table-grid-cell center{% if order.is_expired_date %} overdue{% endif %}">{{ order.get_status_display }}</div>
-        <div class="table-grid-cell center">No info</div>
+        <div class="table-grid-cell center">
+            {% if order.status == 'n' %}
+                <a class="button" href="{% url 'user_order_delete' order.pk %}">Cancel</a>
+            {% elif order.status == 'w' %}
+                <a class="button" href="{% url 'user_order_update' order.pk  %}">Update</a>
+            {% endif %}
+        </div>
     {% endfor %}
 </div>
 {% endblock content %}

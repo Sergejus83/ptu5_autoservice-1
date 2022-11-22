@@ -11,8 +11,8 @@ class OrderReviewForm(forms.ModelForm):
         }
 
 
-# class OrderForm(forms.ModelForm):
-#     class Meta:
-#         model = Order
-#         fields = ('order', 'due_back', )
-#         # widgets = {'due_back': DateInput()}
+class OrderForm(forms.ModelForm):
+    class Meta:
+        model = Order
+        fields = ('car', 'estimate_date',)
+        # widgets = {'due_back': DateInput()}

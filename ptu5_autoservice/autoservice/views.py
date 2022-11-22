@@ -1,14 +1,14 @@
 from django.core.paginator import Paginator
+from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.db.models import Q
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
-from . import models
-from django.contrib.auth.mixins import LoginRequiredMixin
-from . forms import OrderReviewForm
-from django.views.generic.edit import FormMixin
-from django.contrib import messages
-from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views.generic.edit import FormMixin
+from django.urls import reverse, reverse_lazy
+from . forms import OrderReviewForm, OrderForm
+from . import models
 
 
 def index(request):
@@ -94,7 +94,6 @@ class OrderDetailView(FormMixin, generic.DetailView):
         }
 
 
-
 class UserOrderListView(LoginRequiredMixin, ListView):
     model = models.Order
     template_name = 'autoservice/user_order_list.html'
@@ -107,12 +106,37 @@ class UserOrderListView(LoginRequiredMixin, ListView):
 
 class UserOrderCreateView(LoginRequiredMixin, CreateView):
     model = models.Order
-    fields = ('car', 'estimate_date',)
-    # form_class = OrderForm
+    # fields = ('car', 'estimate_date',)
+    form_class = OrderForm
     template_name = 'autoservice/user_order_create.html'
     success_url = reverse_lazy('user_orders')
 
     def form_valid(self, form):
         form.instance.user = self.request.user
         form.instance.status = 'n'
+        messages.success(self.request, 'new order was added')
         return super().form_valid(form)
+
+
+class UserOrderUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
+    model = models.Order
+    # fields = ('car', 'estimate_date',)
+    form_class = OrderForm
+    template_name = 'autoservice/user_order_update.html'
+    success_url = reverse_lazy('user_orders')
+
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        form.instance.status = 'w'
+        messages.success(self.request, 'order in process')
+        return super().form_valid(form)
+
+    
+class UserOrderDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = models.Order
+    template_name = 'autoservice/user_order_delete.html'
+    success_url = reverse_lazy('user_orders')
+
+    def test_func(self):
+        book_instance = self.get_object()
+        return self.request.user == book_instance.user
