@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-23 15:37+0200\n"
+"POT-Creation-Date: 2022-11-23 22:54+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,11 +20,87 @@ msgstr ""
 "11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
 "1 : n % 1 != 0 ? 2: 3);\n"
 
+#: .\user_profile\templates\registration\logged_out.html:3
+msgid "Logged out from "
+msgstr "Atsijungęs is"
+
+#: .\user_profile\templates\registration\logged_out.html:5
+msgid "Logged out"
+msgstr "Atsijungęs"
+
+#: .\user_profile\templates\registration\logged_out.html:6
+msgid "Session closed successfully"
+msgstr "Sesija sėkmingai uždaryta"
+
+#: .\user_profile\templates\registration\logged_out.html:7
+msgid "log in again"
+msgstr "prisijunkite dar kartą"
+
+#: .\user_profile\templates\registration\login.html:3
+msgid "Login to"
+msgstr "Prisijungti prie "
+
+#: .\user_profile\templates\registration\login.html:5
+msgid "Login to autoservice"
+msgstr "Prisijungti prie autoservisa"
+
+#: .\user_profile\templates\registration\login.html:8
+msgid "Login error, please try again"
+msgstr "Prisijungimo klaida, bandykite dar kartą"
+
+#: .\user_profile\templates\registration\login.html:13
+msgid "Permission error. You need a permission to see this page"
+msgstr "Leidimo klaida. Norėdami pamatyti šį puslapį, jums reikia leidimo"
+
+#: .\user_profile\templates\registration\login.html:21
+#: .\user_profile\templates\user_profile\register.html:10
+msgid "Username"
+msgstr "Vartotojo vardas"
+
+#: .\user_profile\templates\registration\login.html:25
+#: .\user_profile\templates\user_profile\register.html:14
+msgid "Password"
+msgstr "Slaptazodis"
+
+#: .\user_profile\templates\registration\login.html:37
+msgid "Forgot password"
+msgstr "Pamirsote slapazodi"
+
+#: .\user_profile\templates\registration\password_reset_complete.html:3
+msgid "Password reset"
+msgstr "Slaptažodžio nustatymas iš naujo"
+
+#: .\user_profile\templates\registration\password_reset_complete.html:5
+msgid "Password reset successful"
+msgstr "Sesija sėkmingai uždaryta"
+
+#: .\user_profile\templates\registration\password_reset_complete.html:6
+msgid "You can login now"
+msgstr "Galite prisijungti dabar"
+
+#: .\user_profile\templates\registration\password_reset_complete.html:6
+#: .\user_profile\templates\user_profile\register.html:22
+msgid "here"
+msgstr "čia"
+
+#: .\user_profile\templates\registration\password_reset_form.html:3
+msgid "Password Reset"
+msgstr "Slaptažodžio nustatymas iš naujo"
+
+#: .\user_profile\templates\registration\password_reset_form.html:5
+msgid "Password Reset Request"
+msgstr "Slaptažodžio nustatymo iš naujo užklausa"
+
+#: .\user_profile\templates\registration\password_reset_form.html:12
+msgid "Reset"
+msgstr "Nustatyti iš naujo"
+
 #: .\user_profile\templates\user_profile\profile.html:14
 msgid "Name"
 msgstr "Vardas"
 
 #: .\user_profile\templates\user_profile\profile.html:16
+#: .\user_profile\templates\user_profile\register.html:12
 msgid "Email"
 msgstr "el.pastas"
 
@@ -32,6 +108,27 @@ msgstr "el.pastas"
 #: .\user_profile\templates\user_profile\update_profile.html:20
 msgid "Update"
 msgstr "Atnaujinti"
+
+#: .\user_profile\templates\user_profile\register.html:3
+#: .\user_profile\templates\user_profile\register.html:19
+msgid "Register"
+msgstr "Registracija"
+
+#: .\user_profile\templates\user_profile\register.html:5
+msgid "Register autoservice account"
+msgstr "Prisijungti prie autoservisa"
+
+#: .\user_profile\templates\user_profile\register.html:16
+msgid "Repeat password"
+msgstr "Pakartoti slapazodi"
+
+#: .\user_profile\templates\user_profile\register.html:22
+msgid "Please log in"
+msgstr "Prosome prisijungti"
+
+#: .\user_profile\templates\user_profile\register.html:22
+msgid "if you have an account"
+msgstr "Jei jau turite paskyra"
 
 #: .\user_profile\templates\user_profile\update_profile.html:3
 #: .\user_profile\templates\user_profile\update_profile.html:5

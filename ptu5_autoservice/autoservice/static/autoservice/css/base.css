@@ -148,7 +148,7 @@ table {
     border-bottom: 3px solid rgb(0, 0, 0);}
 
 .my-order-table {
-    grid-template-columns: 1fr 3fr 1fr 1fr 1fr;
+    grid-template-columns: 5fr 3fr 3fr 2fr 3fr;
 }
 
 .table-grid-cell {
@@ -196,9 +196,10 @@ table {
 }
 
 .overdue {
-    background-color: rgb(248, 203, 203);
+    background-color: rgb(255, 222, 222);
     color: rgb(229, 23, 23);
     font-weight: bold;
+    border:  3px solid rgba(228, 143, 147, 0.3);
 }
 
 .alert {
@@ -223,8 +224,8 @@ table {
 }
 
 .review-form {
-    background-color: rgba(173, 122, 92, 0.3);
-    border-bottom: 3px solid red;
+    background-color: rgba(186, 183, 181, 0.3);
+    border-bottom: 3px solid rgb(133, 38, 38);
 }
 
 .user-profile-photo {
@@ -255,4 +256,14 @@ table {
     float: left;
     margin-right: 0.5rem;
     border-radius: 0.5rem;
+}
+.img-review {
+    max-height: 4rem;
+    float: left;
+    margin-right: 0.5rem;
+    border-radius: 0.5rem; 
+}
+.bold {
+    color:#236;
+    font-weight: bold;
 }

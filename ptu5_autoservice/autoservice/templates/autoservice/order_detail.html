@@ -1,22 +1,23 @@
 {% extends 'autoservice/base.html' %}
-{% block title %}Order {{ object.id }} in {{ block.super }}{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "Order" %}  {{ object.id }} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Order id: {{ object.id }}, date: {{ object.date }}</h1>
-<p>Date: {{ object.date }}</p>
-<p>Status: {{ object.get_status_display }}, estimated: {{ object.estimate_date }}</p>
-<p>Car: {{ object.car }}</p>
+<h1>{% trans "Order id" %}: {{ object.id }}, {% trans "date" %}: {{ object.date }}</h1>
+<p>{% trans "Date" %}: {{ object.date }}</p>
+<p>{% trans "Status" %}: {{ object.get_status_display }}, {% trans "estimated" %}: {{ object.estimate_date }}</p>
+<p>{% trans "Car" %}: {{ object.car }}</p>
 {% for order_line in object.order_lines.all %}
-    <p>Service: {{ order_line }}</p>
+    <p>{% trans "Service" %}: {{ order_line }}</p>
 {% endfor %}
-<p>Total price: {{ object.total }} €</p>
-<h3>Reviews</h3>
+<p>{% trans "Total price" %}: {{ object.total }} €</p>
+<h3>{% trans "Reviews" %}</h3>
 {% if user.is_authenticated %}
     <div class="review-form">
-        <p>Please leave comments here:</p>
+        <p>{% trans "Please leave comments here" %}:</p>
         <form action="" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <p><button type="submit">Post review</button></p>
+            <p><button type="submit">{% trans "Post review" %}</button></p>
         </form>
     </div>
 {% endif %}
@@ -24,7 +25,7 @@
     {% for review in order.reviews.all %}
         <div class="review-form">
         {% if review.user.profile.photo %}
-                <img src="{{ review.user.profile.photo.url }}">
+                <img class="img-review bold" src="{{ review.user.profile.photo.url }}">
         {% endif %}
         {{ review.user }}
         <spam class="float-right">{{ review.create_at }}</spam>

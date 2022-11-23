@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-23 15:56+0200\n"
+"POT-Creation-Date: 2022-11-23 23:50+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,6 +102,7 @@ msgid "total amount"
 msgstr "isviso kiekis"
 
 #: .\autoservice\models.py:65
+#: .\autoservice\templates\autoservice\order_detail.html:5
 msgid "date"
 msgstr "data"
 
@@ -125,6 +126,10 @@ msgstr "paslauga"
 msgid "quantity"
 msgstr "kiekis"
 
+#: .\autoservice\templates\autoservice\base.html:9
+msgid "Autoservice"
+msgstr "Autoservisas"
+
 #: .\autoservice\templates\autoservice\base.html:18
 msgid "Home"
 msgstr "Pradinis"
@@ -134,10 +139,12 @@ msgid "Cars"
 msgstr "Automobiliai"
 
 #: .\autoservice\templates\autoservice\base.html:20
+#: .\autoservice\templates\autoservice\order_list.html:5
 msgid "Orders"
 msgstr "Uzsakymai"
 
 #: .\autoservice\templates\autoservice\base.html:24
+#: .\autoservice\templates\autoservice\user_order_list.html:5
 msgid "My orders"
 msgstr "Mano uzsakymai"
 
@@ -200,3 +207,114 @@ msgstr "is viso paslaugu"
 #: .\autoservice\templates\autoservice\index.html:10
 msgid "Total visits"
 msgstr "Is viso apsilankymu"
+
+#: .\autoservice\templates\autoservice\order_detail.html:3
+#| msgid "Orders"
+msgid "Order"
+msgstr "Uzsakymas"
+
+#: .\autoservice\templates\autoservice\order_detail.html:5
+#| msgid "Orders in"
+msgid "Order id"
+msgstr "Uzsakymo id"
+
+#: .\autoservice\templates\autoservice\order_detail.html:6
+msgid "Date"
+msgstr "Data"
+
+#: .\autoservice\templates\autoservice\order_detail.html:7
+#: .\autoservice\templates\autoservice\user_order_list.html:13
+msgid "Status"
+msgstr "Statusas"
+
+#: .\autoservice\templates\autoservice\order_detail.html:7
+#| msgid "estimate date"
+msgid "estimated"
+msgstr "numatoma data"
+
+#: .\autoservice\templates\autoservice\order_detail.html:8
+#| msgid "Cars"
+msgid "Car"
+msgstr "Automobilis"
+
+#: .\autoservice\templates\autoservice\order_detail.html:10
+#| msgid "service"
+msgid "Service"
+msgstr "Paslauga"
+
+#: .\autoservice\templates\autoservice\order_detail.html:12
+#| msgid "Total services"
+msgid "Total price"
+msgstr "Is viso kaina"
+
+#: .\autoservice\templates\autoservice\order_detail.html:13
+msgid "Reviews"
+msgstr "Atsiliepimai"
+
+#: .\autoservice\templates\autoservice\order_detail.html:16
+msgid "Please leave comments here"
+msgstr "Prašome palikti komentarus čia"
+
+#: .\autoservice\templates\autoservice\order_detail.html:20
+msgid "Post review"
+msgstr "Paskelbti atsilepima"
+
+#: .\autoservice\templates\autoservice\order_list.html:3
+msgid "Orders in"
+msgstr "Uzsakymai"
+
+#: .\autoservice\templates\autoservice\user_order_list.html:3
+msgid "My order in"
+msgstr "Mano uzsakymai"
+
+#: .\autoservice\templates\autoservice\user_order_list.html:6
+msgid "Make new order"
+msgstr "padaryti nauja uzsakyma"
+
+#: .\autoservice\templates\autoservice\user_order_list.html:10
+msgid "Car - Licence plate - Owner"
+msgstr "Automobilis - Valstybinis numeris - Savininkas"
+
+#: .\autoservice\templates\autoservice\user_order_list.html:11
+msgid "Order date"
+msgstr "Uzsakymo data"
+
+#: .\autoservice\templates\autoservice\user_order_list.html:12
+msgid "Due date"
+msgstr "Terminas iki"
+
+#: .\autoservice\templates\autoservice\user_order_list.html:14
+msgid "Action"
+msgstr "Veiksmas"
+
+#: .\autoservice\templates\autoservice\user_order_list.html:22
+msgid "Cancel"
+msgstr "Atsaukti"
+
+#: .\autoservice\templates\autoservice\user_order_list.html:23
+msgid "Update"
+msgstr "Atnaujinti"
+
+#: .\autoservice\templates\autoservice\user_order_list.html:25
+msgid "no action"
+msgstr "Nieko nereikia"
+
+#: .\autoservice\templates\autoservice\user_order_update.html:3
+msgid "Updating in"
+msgstr "Atnaujinti"
+
+#: .\autoservice\templates\autoservice\user_order_update.html:5
+msgid "Updating order info"
+msgstr "Uzsakymo informaciojos atnaujinimas"
+
+#: .\autoservice\templates\autoservice\user_order_update.html:11
+msgid "Your order"
+msgstr "Jusu uzsakymas"
+
+#: .\autoservice\templates\autoservice\user_order_update.html:15
+msgid "Click the button to pay for your order"
+msgstr "Norėdami sumokėti už užsakymą, spustelėkite mygtuką"
+
+#: .\autoservice\templates\autoservice\user_order_update.html:16
+msgid "Pay"
+msgstr "Sumokėti"

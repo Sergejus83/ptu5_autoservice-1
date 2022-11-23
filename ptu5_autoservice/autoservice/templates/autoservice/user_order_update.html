@@ -1,13 +1,19 @@
 {% extends 'autoservice/base.html' %}
-{% block title %}Updating in {{ block.super }}{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "Updating in" %}  {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Updating order info</h1>
-{% if action %}{{ action }}{% endif %}
+<h1>{% trans "Updating order info" %}</h1>
+{% if action %}
+    <p>{{ action }}
+{% endif %}
 <form action="" method="post">
-    {% if order %}<p>{{ order.car }}</p>{% endif %}
+    {% if order %}
+        <p class="bold">{% trans "Your order" %}: {{ order.car }}</p>
+    {% endif %}
     {% csrf_token %}
     {{ form.as_p }}
-    <h4>Click the button to pay for your order</h4>
-    <p><button type="submit">{% if action %}{{ action }}{% endif %}Pay</button></p>
+    <p>{% trans "Click the button to pay for your order" %}
+        <button type="submit">{% if action %}{{ action }}{% endif %}{% trans "Pay" %}</button>
+    </p>
 </form>
 {% endblock content %}

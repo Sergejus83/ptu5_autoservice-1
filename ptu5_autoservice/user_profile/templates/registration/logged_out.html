@@ -1,7 +1,9 @@
 {% extends 'autoservice/base.html' %}
-{% block title %}Logged out from {{ block.super }}{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "Logged out from " %}{{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Logged out</h1>
-<p>Session closed successfully.<a href="{% url 'login' %}">log in again</a>.</p>
+<h1>{% trans "Logged out" %}</h1>
+<p>{% trans "Session closed successfully" %}</p>
+<p><a class="button" href="{% url 'login' %}"> {% trans "log in again" %}</a></p>
 {% endblock content %}
 
