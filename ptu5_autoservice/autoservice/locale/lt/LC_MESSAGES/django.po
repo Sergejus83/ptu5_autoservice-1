@@ -1,0 +1,202 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-23 15:56+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+
+#: .\autoservice\models.py:13
+msgid "make"
+msgstr "marke"
+
+#: .\autoservice\models.py:14
+msgid "model"
+msgstr "modelis"
+
+#: .\autoservice\models.py:15
+msgid "year"
+msgstr "metai"
+
+#: .\autoservice\models.py:16
+msgid "engine"
+msgstr "variklis"
+
+#: .\autoservice\models.py:25
+msgid "car model"
+msgstr "masinos modelis"
+
+#: .\autoservice\models.py:29
+msgid "license plate"
+msgstr "valstybinis numeris"
+
+#: .\autoservice\models.py:30
+#: .\autoservice\templates\autoservice\car_detail.html:8
+msgid "VIN number"
+msgstr "VIN numeris"
+
+#: .\autoservice\models.py:31
+msgid "client name"
+msgstr "Kliento vardas"
+
+#: .\autoservice\models.py:32
+msgid "cover"
+msgstr "nuotrauka"
+
+#: .\autoservice\models.py:40
+msgid "name"
+msgstr "pavadinimas"
+
+#: .\autoservice\models.py:41 .\autoservice\models.py:114
+msgid "price"
+msgstr "kaina"
+
+#: .\autoservice\models.py:49
+msgid "new"
+msgstr "naujas"
+
+#: .\autoservice\models.py:50
+msgid "advance payment taken"
+msgstr "isankstinis mokejimas"
+
+#: .\autoservice\models.py:51
+msgid "ordered parts"
+msgstr "uzsakytos detales"
+
+#: .\autoservice\models.py:52
+msgid "working"
+msgstr "tvarkoma"
+
+#: .\autoservice\models.py:53
+msgid "done"
+msgstr "ivykditas"
+
+#: .\autoservice\models.py:54
+msgid "cancelled"
+msgstr "atsauktas"
+
+#: .\autoservice\models.py:55
+msgid "paid"
+msgstr "apmoketa"
+
+#: .\autoservice\models.py:60
+msgid "car"
+msgstr "automobilis"
+
+#: .\autoservice\models.py:64
+msgid "total amount"
+msgstr "isviso kiekis"
+
+#: .\autoservice\models.py:65
+msgid "date"
+msgstr "data"
+
+#: .\autoservice\models.py:66
+msgid "status"
+msgstr "statusas"
+
+#: .\autoservice\models.py:67
+msgid "estimate date"
+msgstr "numatoma data"
+
+#: .\autoservice\models.py:103
+msgid "order"
+msgstr "uzsakymas"
+
+#: .\autoservice\models.py:109
+msgid "service"
+msgstr "paslauga"
+
+#: .\autoservice\models.py:113
+msgid "quantity"
+msgstr "kiekis"
+
+#: .\autoservice\templates\autoservice\base.html:18
+msgid "Home"
+msgstr "Pradinis"
+
+#: .\autoservice\templates\autoservice\base.html:19
+msgid "Cars"
+msgstr "Automobiliai"
+
+#: .\autoservice\templates\autoservice\base.html:20
+msgid "Orders"
+msgstr "Uzsakymai"
+
+#: .\autoservice\templates\autoservice\base.html:24
+msgid "My orders"
+msgstr "Mano uzsakymai"
+
+#: .\autoservice\templates\autoservice\base.html:26
+msgid "Admin"
+msgstr "Administratorius"
+
+#: .\autoservice\templates\autoservice\base.html:28
+msgid "Logout"
+msgstr "Iseiti"
+
+#: .\autoservice\templates\autoservice\base.html:30
+msgid "Register"
+msgstr "registracija"
+
+#: .\autoservice\templates\autoservice\base.html:31
+msgid "Login"
+msgstr "Ieiti"
+
+#: .\autoservice\templates\autoservice\car_detail.html:6
+msgid "Client"
+msgstr "Klientas"
+
+#: .\autoservice\templates\autoservice\car_detail.html:7
+msgid "Plate"
+msgstr "Valstybinis numeris"
+
+#: .\autoservice\templates\autoservice\car_list.html:3
+msgid "Cars in"
+msgstr "Automobiliai"
+
+#: .\autoservice\templates\autoservice\car_list.html:5
+msgid "Cars list"
+msgstr "Automobiliu sarasas"
+
+#: .\autoservice\templates\autoservice\includes\paginator_search.html:14
+msgid "search"
+msgstr "paieška"
+
+#: .\autoservice\templates\autoservice\index.html:3
+msgid "Welcome to"
+msgstr "Sveiki atvyke i"
+
+#: .\autoservice\templates\autoservice\index.html:5
+msgid "PTU5 Autoservice"
+msgstr "PTU5 Autoservisas"
+
+#: .\autoservice\templates\autoservice\index.html:7
+msgid "Total cars"
+msgstr "Is viso automobiliu"
+
+#: .\autoservice\templates\autoservice\index.html:8
+msgid "Total orders"
+msgstr "Is viso uzsakymu"
+
+#: .\autoservice\templates\autoservice\index.html:9
+msgid "Total services"
+msgstr "is viso paslaugu"
+
+#: .\autoservice\templates\autoservice\index.html:10
+msgid "Total visits"
+msgstr "Is viso apsilankymu"

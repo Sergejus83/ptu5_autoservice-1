@@ -1,4 +1,5 @@
 {% extends 'autoservice/base.html' %}
+{% load i18n %}
 {% block title %} {{ block.super }} {{ user }} {% endblock title %}
 {% block content %}
 <h1>{{ user }}</h1>
@@ -10,10 +11,10 @@
     {% endif %}
     <div class="spacer">
         {% if user.first_name or user.last_name %}
-            <p>Name: {{ user.first_name}} {{ user.last_name }}</p>
+            <p>{% trans "Name" %}: {{ user.first_name}} {{ user.last_name }}</p>
         {% endif %}
-        <p>Email: {{ user.email }}</p>
-        <p><a class="button" href="{% url 'update_profile' %}">Update</a></p>
+        <p>{% trans "Email" %}: {{ user.email }}</p>
+        <p><a class="button" href="{% url 'update_profile' %}">{% trans "Update" %}</a></p>
     </div>
 </div>
 {% endblock content %}

@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="paginator">
     {% if page_obj.has_previous %}
         <a href="?{% if request.GET.search %}search={{ request.GET.search }}&{% endif %}page=1">&#11120;</a>
@@ -10,6 +11,6 @@
     {% endif %}
     <form action="" method="get">
         <input type="text" name="search" value="{{ request.GET.search }}">
-        <button type="submit">search</button>
+        <button type="submit">{% trans "search" %}</button>
     </form>
 </div>

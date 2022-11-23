@@ -1,11 +1,22 @@
 {% extends 'autoservice/base.html' %}
-{% block title %}Welcome to {{ block.super }}{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans "Welcome to" %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>PTU5 Autoservice</h1>
+<h1>{% trans "PTU5 Autoservice" %}</h1>
 <ul>
-    <li>Total cars: {{ cars_count }}</li>
-    <li>Total orders: {{ orders_count }}</li>
-    <li>Total services: {{ services_count }}</li>
-    <li>Total visits: {{ visits_count }}</li>
+    <li>{% trans "Total cars" %}: {{ cars_count }}</li>
+    <li>{% trans "Total orders" %}: {{ orders_count }}</li>
+    <li>{% trans "Total services" %}: {{ services_count }}</li>
+    <li>{% trans "Total visits" %}: {{ visits_count }}</li>
 </ul>
 {% endblock content %}
+
+
+{% comment %} 
+
+from django.utils.translation import gettext_lazy as _
+{% load i18n %}
+python manage.py makemessages -l=lt
+python manage.py compilemessages 
+
+{% endcomment %}
